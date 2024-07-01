@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Pragati Sales</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 20px 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .hero {
+            background: url(white) no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            background: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .social-links a {
+            color: #333;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FF6B6B;
+        }
+
+        .journey-section {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .journey-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #FF6B6B;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: white;
+            border: 4px solid #FF6B6B;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #FF6B6B;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #FF6B6B;
+        }
+
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #FF6B6B;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #FF6B6B transparent transparent;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer .social-links {
+            margin-top: 20px;
+        }
+
+        footer .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Pragati Sales</div>
+                <div class="nav-links">
+                    <a href="./index.html">Home</a>
+                    <a href="./products.html">Products</a>
+                    <a href="./contact_us.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Our Colorful Journey</h1>
+                <p>Discover the story behind Pragati Sales and our passion for bringing colors to life.</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <h2>Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member 1">
+                        <h3>Experienced Leader</h3>
+                        <p>Visionary with years of industry expertise</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member 2">
+                        <h3>Color Expert</h3>
+                        <p>Master of paint formulations and color theory</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member 3">
+                        <h3>Innovation Intern</h3>
+                        <h5>Jenish Shobhit</h5>
+                        <p>Engineering student bringing fresh ideas</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <img src="/api/placeholder/150/150" alt="Team Member 4">
+                        <h3>Creative Intern</h3>
+                        <h5>Bhakti Rohira</h5>
+                        <p>Engineering student with a flair for design</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey-section">
+            <div class="container">
+                <h2>Our Colorful Journey</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>2010: The Beginning</h3>
+                            <p>Pragati Sales was founded with a vision to revolutionize the paint industry.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>2015: Expansion</h3>
+                            <p>We expanded our product line and reached customers nationwide.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>2020: Innovation</h3>
+                            <p>Launched our eco-friendly paint series, setting new industry standards.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>2024: Looking Ahead</h3>
+                            <p>Continuing to innovate and bring vibrant colors to homes across the country.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pragati Sales. All rights reserved.</p>
+            <div class="social-links">
+                <a href="./index.html" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="./contact_us.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="./products.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+

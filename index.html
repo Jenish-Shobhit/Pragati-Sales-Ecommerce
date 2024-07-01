@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pragati Sales - A World of Colors</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            padding: 2rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.5s;
+        }
+
+        .cta-button:hover:before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background: #FFA500;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .feature-card:hover:before {
+            left: 100%;
+            top: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #FF6B6B;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .color-palette {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .color-palette h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .palette-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .color-swatch {
+            width: 120px;
+            height: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-name {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid #FF6B6B;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card h4 {
+            font-weight: 600;
+            color: #333;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+
+        .paint-splash {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .splash {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: splash 10s infinite;
+        }
+
+        @keyframes splash {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Pragati Sales</div>
+                <div class="nav-links">
+                    <a href="./about_us.html">About Us</a>
+                    <a href="./products.html">Contact Us</a>
+                    <a href="./contact_us.html">Shop</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="paint-splash" id="paintSplash"></div>
+            <div class="hero-content">
+                <h1>Transform Your World with Colors</h1>
+                <p>Discover premium quality paints for your home and office</p>
+                <a href="./products.html" class="cta-button">Explore Our Collection</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Pragati Sales?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Our paints are made with sustainable materials, ensuring a safer environment for you and your family.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>Vibrant Colors</h3>
+                        <p>Choose from a wide range of rich, long-lasting colors to bring your vision to life.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏱️</div>
+                        <h3>Quick Drying</h3>
+                        <p>Our advanced formula ensures fast drying times, allowing you to enjoy your newly painted space sooner.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="color-palette">
+            <div class="container">
+                <h2>Discover Our Color Palette</h2>
+                <div class="palette-container" id="colorPalette"></div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Customers Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <img src="./Untitled design (2).png" alt="Customer 1">
+                        <p>"Pragati Sales' paints transformed my home beautifully. The colors are vibrant and long-lasting!"</p>
+                        <h4>Anushka Sharma</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="./Untitled design (1).png" alt="Customer 2">
+                        <p>"I'm impressed with the quality and eco-friendly nature of their products. Highly recommended!"</p>
+                        <h4>Rohit Sharma</h4>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="./Untitled design.png" alt="Customer 3">
+                        <p>"The customer service at Pragati Sales is exceptional. They helped me choose the perfect colors for my office."</p>
+                        <h4>Priyanka Chopra</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pragati Sales. All rights reserved.</p>
+            <div class="social-links">
+                <a href="./products.html" aria-label="Shop">📘</a>
+                <a href="./about_us.html" aria-label="About us ">📷</a>             
+                <a href="./contact_us.html" aria-label="Contact us ">📌</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create paint splashes
+        const paintSplash = document.getElementById('paintSplash');
+        const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FDCB6E', '#6C5CE7', '#FFA07A'];
+
+        for (let i = 0; i < 20; i++) {
+            const splash = document.createElement('div');
+            splash.classList.add('splash');
+            splash.style.width = `${Math.random() * 100 + 50}px`;
+            splash.style.height = splash.style.width;
+            splash.style.top = `${Math.random() * 100}%`;
+            splash.style.left = `${Math.random() * 100}%`;
+            splash.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            splash.style.animationDelay = `${Math.random() * 10}s`;
+            paintSplash.appendChild(splash);
+        }
+
+        // Populate color palette
+        const colorPalette = document.getElementById('colorPalette');
+        const paletteColors = [
+            {name: 'Sunset Orange', color: '#FF6B6B'},
+            {name: 'Ocean Blue', color: '#4ECDC4'},
+            {name: 'Sky Blue', color: '#45B7D1'},
+            {name: 'Sunflower Yellow', color: '#FDCB6E'},
+            {name: 'Lavender', color: '#6C5CE7'},
+            {name: 'Peach', color: '#FFA07A'}
+        ];
+
+        paletteColors.forEach(swatch => {
+            const colorSwatch = document.createElement('div');
+            colorSwatch.classList.add('color-swatch');
+            colorSwatch.style.backgroundColor = swatch.color;
+
+            const colorName = document.createElement('div');
+            colorName.classList.add('color-name');
+            colorName.innerText = swatch.name;
+
+            colorSwatch.appendChild(colorName);
+            colorPalette.appendChild(colorSwatch);
+        });
+    </script>
+</body>
+</html>

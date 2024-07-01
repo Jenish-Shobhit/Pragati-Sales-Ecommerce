@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Pragati Sales</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f0f0;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 20px 0;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        main {
+            padding: 50px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1, h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+
+        .paint-splash {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #FF6B6B;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .splash-1 {
+            top: -100px;
+            left: -100px;
+            background: #4ECDC4;
+        }
+
+        .splash-2 {
+            bottom: -100px;
+            right: -100px;
+            background: #FFD93D;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #6C5CE7;
+            box-shadow: 0 0 10px rgba(108, 92, 231, 0.1);
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background: #FFD700;
+            color: #333;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background: #FFA500;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #6C5CE7;
+        }
+
+        .faq {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            display: none;
+        }
+
+        footer {
+            background: linear-gradient(45deg, #FF6B6B, #6C5CE7, #4ECDC4, #FFD93D);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #FFD700;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Pragati Sales</div>
+                <div class="nav-links">
+                    <a href="./index.html">Home</a>
+                    <a href="./about_us.html">About Us</a>
+                    <a href="./products.html">Shop</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <div class="paint-splash splash-1"></div>
+                <h1>Let's Paint Your World Together</h1>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your colorful ideas..."></textarea>
+                        </div>
+                        <button type="submit">Send Your Palette</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="paint-splash splash-2"></div>
+                <h2>Our Colorful Details</h2>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i>📍</i>
+                        <h3>Visit Our Studio</h3>
+                        <p>123 Rainbow Road, Colorful City, 12345</p>
+                    </div>
+                    <div class="info-card">
+                        <i>📞</i>
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="info-card">
+                        <i>✉️</i>
+                        <h3>Email Us</h3>
+                        <p>painttheworld@pragatisales.com</p>
+                    </div>
+                    <div class="info-card">
+                        <i>🕒</i>
+                        <h3>Opening Hours</h3>
+                        <p>Monday - Friday: 9 AM - 6 PM</p>
+                        <p>Saturday: 10 AM - 4 PM</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What types of paint do you offer?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            We offer a wide range of paints including interior, exterior, specialty, and eco-friendly options. Our collection covers various finishes such as matte, semi-gloss, and high-gloss.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do you offer color matching services?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            Yes, we provide professional color matching services. Bring in a sample, and we'll create a perfect match for your needs.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can I return unused paint?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            We accept returns of unopened paint cans within 30 days of purchase. Custom-mixed colors cannot be returned, so please be sure of your choice before ordering.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Pragati Sales. Coloring your world, one brush stroke at a time.</p>
+            <div class="social-links">
+                <a href="./index.html" aria-label="Facebook">📘</a>
+                <a href="./products.html" aria-label="Instagram">📷</a>
+                
+                <a href="./about_us.html" aria-label="Pinterest">📌</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                answer.style.display = isOpen ? 'none' : 'block';
+                question.querySelector('span').textContent = isOpen ? '+' : '-';
+            });
+        });
+    </script>
+</body>
+</html>
